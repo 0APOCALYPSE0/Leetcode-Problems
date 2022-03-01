@@ -1,12 +1,17 @@
 class Solution {
     // function to convert decimal to binary
-    public int decToBinary(int n){
+    public int decToBinary(int n, int[] res){
         int count = 0;
         while (n > 0) {
             // storing remainder in binary array
             int temp = n % 2;
             if(temp == 1){
-                count++;
+                if(res[n] != 0){
+                    count = count + res[n];
+                    break;
+                }else{
+                    count++;   
+                }
             }
             n = n / 2;
         }
@@ -17,10 +22,8 @@ class Solution {
         int result[] = new int[n+1];
         
         for(int i=0; i<=n; i++){
-            int value = decToBinary(i);
-            if(value >= 0 && value <= n){
-                result[i] = value;
-            }
+            int value = decToBinary(i, result);
+            result[i] = value;
         } 
         return result;
     }
