@@ -9,20 +9,7 @@
  */
 
 class Solution {
-    private int targetValue;
     private TreeNode treeNode;
-    private void preOrder(TreeNode tree, TreeNode target){
-        if(target == tree){
-            this.targetValue = tree.val;
-            return;
-        }
-        if(tree.left != null){
-            this.preOrder(tree.left, target);
-        }
-        if(tree.right != null){
-            this.preOrder(tree.right, target);
-        }
-    }
     
     private void preOrder(TreeNode tree, int target){
         if(target == tree.val){
@@ -37,9 +24,7 @@ class Solution {
         }
     }
     public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
-        this.preOrder(original, target);
-        System.out.println(targetValue);
-        this.preOrder(cloned, targetValue);
+        this.preOrder(cloned, target.val);
         return treeNode;
     }
 }
