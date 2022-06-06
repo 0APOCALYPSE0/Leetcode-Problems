@@ -18,8 +18,6 @@ class Solution {
     int count = 0;
     public void preOrder(TreeNode p, TreeNode q){
         if(p.val != q.val || p.left == null && q.left != null || p.left != null && q.left == null || p.right == null && q.right != null || p.right != null && q.right == null){
-            // System.out.println(p.left instanceof TreeNode);
-            // System.out.println("ji "+p.val+" "+q.val+" "+p.left+" "+p.right+" "+q.left+" "+q.right);
             this.count++;
             if(this.count == 1){
                 this.isSame = false;   
